@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Accent color as "R G B" so Tailwind can apply opacity (bg-primary/10). Rebrand here. */
+:root {
+  --color-primary: 79 70 229;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    @apply bg-surface font-sans text-ink;
+  }
+
+  h1, h2, h3 {
+    @apply font-semibold tracking-tight;
+  }
+
+  /* iOS Safari zooms into focused fields under 16px and the page then
+     scrolls sideways. On touch screens every field is 16px. */
+  @media (pointer: coarse) {
+    input:not([type='checkbox']):not([type='radio']):not([type='color']):not([type='file']),
+    select,
+    textarea {
+      font-size: 16px !important;
+    }
+  }
+}
